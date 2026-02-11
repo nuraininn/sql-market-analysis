@@ -70,11 +70,13 @@ Orders
 - Website strong in Q2–Q3
 - Offline Store strongest in December
 - July lowest performance across channels
+
 Revenue
 - December highest revenue (Offline ~1.5B)
 - February & July low revenue months
 - April–May: high volume, lower AOV
 - December: high volume & high AOV
+
 Business Insights
 - Strong seasonality effect (holiday-driven growth)
 - Revenue ≠ Order Volume (AOV fluctuation important)
