@@ -54,9 +54,7 @@ Analyze monthly channel performance (Web, App, Offline) in 2024:
 1. Total distinct orders & total revenue per month
 2. MoM revenue growth vs same month in 2023
 
-## Dataset
-Order data from order_detail table.
-
+## 3.1 Total distinct orders & total revenue per month
 ## Approach
 - Extract month from order_date
 - Filter is_valid = 1
@@ -87,3 +85,50 @@ Business Insights
 - Mitigate low-season decline (Feb & Jul)
 - Strengthen omnichannel integration
 - Monitor AOV alongside order growth
+
+## 3.2 MoM revenue growth vs same month in 2023
+## Approach 
+CTE – revenue_per_month: Calculated total distinct orders and total revenue per month, year, and channel type by:
+- Extracting month and year from order_date
+- Counting distinct order_id
+- Summing after_discount
+- Filtering valid transactions (is_valid = 1)
+- Filtering years 2023 and 2024
+- Grouping by channel, month, and year
+
+CTE – pivot_years: Transformed row-based data into column format (pivot):
+- Converted month number into month name
+- Separated revenue and orders for 2023 and 2024 using CASE statements
+- Used MAX() to ensure one value per group
+- Used COALESCE(..., 0) to handle missing values
+
+Main Query
+- Calculated revenue growth percentage: Prevented division by zero when revenue_2023 = 0 and applied growth formula: (revenue_2024 - revenue_2023) / revenue_2023 * 100
+- Rounded results to two decimal places
+- Ordered by channel and month
+
+## Key Insights
+- Offline Store showed the strongest spikes (Jan +407%, Dec +638%).
+- Website performed strongly mid-year and Q4.
+- App Store experienced significant mid-year declines (down to -82%).
+- Growth was highly seasonal — strong at the beginning and end of the year, weaker mid-year.
+
+Business Insights
+- Revenue growth is volatile and season-driven.
+- Channel performance varies significantly by month.
+- High order volume does not always translate into high revenue growth.
+
+## Recommendations
+- Prioritize high-growth channels (Offline & Website).
+- Investigate decline drivers in App Store.
+- Adjust budget allocation based on channel performance.
+- Apply seasonal, adaptive promotion strategies.
+
+## Business Problem 4
+Evaluate the effectiveness of organic traffic channels by analyzing:
+- Total organic events per channel
+- Total unique converted orders
+- Conversion rate (%)
+Period: Jan 1 – Dec 31, 2024
+
+## 4.1 Total organic events per channel
