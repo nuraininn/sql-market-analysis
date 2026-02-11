@@ -48,3 +48,40 @@ Data from order_detail and product_detail table.
 - Prioritize stock for top-performing categories.
 - Adjust inventory levels based on growth/decline trends.
 - Prepare buffer stock to anticipate seasonal demand fluctuations.
+
+## Business Problem 3
+Analyze monthly channel performance (Web, App, Offline) in 2024:
+1. Total distinct orders & total revenue per month
+2. MoM revenue growth vs same month in 2023
+
+## Dataset
+Order data from order_detail table.
+
+## Approach
+- Extract month from order_date
+- Filter is_valid = 1
+- Filter year = 2024
+- Count distinct order_id → total_orders
+- Sum after_discount → total_revenue
+- Group by month & channel_type
+
+## Key Insights
+Orders
+- Website strong in Q2–Q3
+- Offline Store strongest in December
+- July lowest performance across channels
+Revenue
+- December highest revenue (Offline ~1.5B)
+- February & July low revenue months
+- April–May: high volume, lower AOV
+- December: high volume & high AOV
+Business Insights
+- Strong seasonality effect (holiday-driven growth)
+- Revenue ≠ Order Volume (AOV fluctuation important)
+- Competitive channel dynamics
+
+## Recommendations
+- Focus year-end campaign optimization
+- Mitigate low-season decline (Feb & Jul)
+- Strengthen omnichannel integration
+- Monitor AOV alongside order growth
