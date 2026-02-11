@@ -1,4 +1,7 @@
-# SQL - Market Analysis
+# SQL - Ecommerce Sales & Performance Analysis (2024)
+
+## Project Overview
+This project analyzes sales performance, inventory planning, channel growth, organic funnel effectiveness, and customer onboarding to support strategic decision-making.
 
 ## Business Problem 1
 The board requested a monthly sales report for 2024 to evaluate revenue performance.
@@ -12,16 +15,6 @@ Transaction data from transaction_detail table.
 - Sum total_paid as total revenue
 - Filter year 2024
 - Group and order by month
-
-## SQL Query
-SELECT
-  extract(month from transaction_date) as bulan_2024,
-  COUNT(DISTINCT transaction_id) AS total_transaksi,
-  round(sum(total_paid),2) AS total_penjualan,
-  FROM `finpro23.transaction_detail`
-WHERE EXTRACT(YEAR FROM DATE(transaction_date)) = 2024
-GROUP BY bulan_2024
-ORDER BY bulan_2024;
 
 ## Key Insights
 - Sales peaked in May and December.
